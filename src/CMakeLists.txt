@@ -4,10 +4,10 @@ add_subdirectory(w5100)
 
 add_cpp_library(stm32-socket OBJECT Socket.cpp)
 target_link_libraries(stm32-socket PUBLIC GSL::GSL)
-target_link_libraries(stm32-socket PRIVATE SYSTEM stm32hal-api)
+target_link_libraries(stm32-socket PRIVATE stm32hal-api)
 
 add_cpp_library(stm32-platform OBJECT PlatformStm32.cpp)
-target_link_libraries(stm32-platform PRIVATE SYSTEM stm32hal-api)
+target_link_libraries(stm32-platform PRIVATE stm32hal-api)
 
 
 add_library(stm32-eth $<TARGET_OBJECTS:stm32-socket>

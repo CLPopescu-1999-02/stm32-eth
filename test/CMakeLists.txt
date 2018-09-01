@@ -60,8 +60,8 @@ add_test_suite(NAME CommonTest
 add_test_suite(NAME SocketTest
                 SOURCE
                     SocketTest.cpp
-                    $<TARGET_OBJECTS:stm32-socket>
                 DEPENDS
+                    stm32-socket
                     spiwriter-mock
                     w5100device-mock
                     platform-mock
@@ -73,8 +73,8 @@ add_test_suite(NAME W5100DeviceTest
                 SOURCE
                     W5100DeviceTest.cpp
                     W5100RegisterTest.cpp
-                    $<TARGET_OBJECTS:stm32-w5100device>
                 DEPENDS
+                    stm32-w5100device
                     spiwriter-mock
                     GSL::GSL
                 )
@@ -83,8 +83,8 @@ add_test_suite(NAME W5100DeviceTest
 add_test_suite(NAME SpiWriterTest
                 SOURCE
                     SpiWriterTest.cpp
-                    $<TARGET_OBJECTS:stm32-spiwriter>
                 DEPENDS
+                    stm32-spiwriter
                     platform-mock
                     stm32hal-mock
                     GSL::GSL

@@ -1,17 +1,3 @@
-function(link_to_obj targetName)
-    set(multiValueArgs DEFAULT SYSTEM)
-    cmake_parse_arguments(LINK_OPTION "" "" "${multiValueArgs}" ${ARGN})
-
-    foreach(lib IN LISTS LINK_OPTION_DEFAULT)
-        target_include_directories(${targetName} PRIVATE $<TARGET_PROPERTY:${lib},INTERFACE_INCLUDE_DIRECTORIES>)
-        target_compile_definitions(${targetName} PRIVATE $<TARGET_PROPERTY:${lib},INTERFACE_COMPILE_DEFINITIONS>)
-    endforeach()
-    foreach(lib IN LISTS LINK_OPTION_SYSTEM)
-        target_include_directories(${targetName} SYSTEM PRIVATE $<TARGET_PROPERTY:${lib},INTERFACE_INCLUDE_DIRECTORIES>)
-        target_compile_definitions(${targetName} PRIVATE $<TARGET_PROPERTY:${lib},INTERFACE_COMPILE_DEFINITIONS>)
-    endforeach()
-endfunction()
-
 
 add_subdirectory(spi)
 add_subdirectory(w5100)
